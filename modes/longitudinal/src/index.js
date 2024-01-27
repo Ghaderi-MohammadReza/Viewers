@@ -128,6 +128,7 @@ function modeFactory({ modeConfiguration }) {
         'Zoom',
         'Magnify',
         'Capture',
+        'StackScroll',
       ]);
       toolbarService.createButtonSection(MPR_TOOL_GROUP_ID, [
         'MeasurementTools',

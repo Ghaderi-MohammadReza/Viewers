@@ -235,6 +235,32 @@ const toolbarButtons: Button[] = [
       commands: _createSetToolActiveCommands('Magnify'),
     },
   },
+  //Stack Scroll
+  {
+    id: 'StackScroll',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-stack-scroll',
+      label: 'Stack Scroll',
+      commands: _createSetToolActiveCommands('Stack Scroll'),
+    },
+  },
+  // ToolbarService._createToolButton(
+  //   'StackScroll',
+  //   'tool-stack-scroll',
+  //   'Stack Scroll',
+  //   [
+  //     {
+  //       commandName: 'setToolActive',
+  //       commandOptions: {
+  //         toolName: 'StackScroll',
+  //       },
+  //       context: 'CORNERSTONE',
+  //     },
+  //   ],
+  //   'Stack Scroll'
+  // ),
   // Window Level + Presets...
   {
     id: 'WindowLevel',
