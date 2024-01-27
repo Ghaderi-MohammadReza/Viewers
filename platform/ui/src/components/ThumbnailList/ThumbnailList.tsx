@@ -55,7 +55,8 @@ const ThumbnailList = ({
                   messages={messages}
                   viewportIdentificator={viewportIdentificator}
                   isActive={isActive}
-                  onClick={() => onThumbnailClick(displaySetInstanceUID)}
+                  // Set Double Click Functionality Instead Single Click Functionality
+                  onClick={() => onThumbnailDoubleClick(displaySetInstanceUID)}
                   onDoubleClick={() => onThumbnailDoubleClick(displaySetInstanceUID)}
                 />
               );
@@ -75,7 +76,8 @@ const ThumbnailList = ({
                   viewportIdentificator={viewportIdentificator}
                   isTracked={isTracked}
                   isActive={isActive}
-                  onClick={() => onThumbnailClick(displaySetInstanceUID)}
+                  // Set Double Click Functionality Instead Single Click Functionality
+                  onClick={() => onThumbnailDoubleClick(displaySetInstanceUID)}
                   onDoubleClick={() => onThumbnailDoubleClick(displaySetInstanceUID)}
                   onClickUntrack={() => onClickUntrack(displaySetInstanceUID)}
                 />
@@ -94,7 +96,8 @@ const ThumbnailList = ({
                   description={description}
                   canReject={canReject}
                   onReject={onReject}
-                  onClick={() => onThumbnailClick(displaySetInstanceUID)}
+                  // Set Double Click Functionality Instead Single Click Functionality
+                  onClick={() => onThumbnailDoubleClick(displaySetInstanceUID)}
                   onDoubleClick={() => onThumbnailDoubleClick(displaySetInstanceUID)}
                   viewportIdentificator={viewportIdentificator}
                   isHydratedForDerivedDisplaySet={isHydratedForDerivedDisplaySet}
