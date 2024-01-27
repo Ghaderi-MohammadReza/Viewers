@@ -31,9 +31,12 @@ function initDefaultToolGroup(extensionManager, toolGroupService, commandsManage
       },
       {
         toolName: toolNames.Magnify,
+        bindings: [{ mouseButton: Enums.MouseBindings.Secondary }],
+      },
+      {
+        toolName: toolNames.StackScroll,
         bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
       },
-      { toolName: toolNames.StackScrollMouseWheel, bindings: [] },
     ],
     passive: [
       { toolName: toolNames.Length },
@@ -59,7 +62,7 @@ function initDefaultToolGroup(extensionManager, toolGroupService, commandsManage
       { toolName: toolNames.EllipticalROI },
       { toolName: toolNames.CircleROI },
       { toolName: toolNames.RectangleROI },
-      { toolName: toolNames.StackScroll },
+      // { toolName: toolNames.StackScroll },
       { toolName: toolNames.Angle },
       { toolName: toolNames.CobbAngle },
       { toolName: toolNames.PlanarFreehandROI },
@@ -129,11 +132,11 @@ function initSRToolGroup(extensionManager, toolGroupService, commandsManager) {
       },
       {
         toolName: toolNames.Magnify,
-        bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
+        bindings: [{ mouseButton: Enums.MouseBindings.Secondary }],
       },
       {
-        toolName: toolNames.StackScrollMouseWheel,
-        bindings: [],
+        toolName: toolNames.StackScroll,
+        bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
       },
     ],
     passive: [
@@ -189,9 +192,12 @@ function initMPRToolGroup(extensionManager, toolGroupService, commandsManager) {
       },
       {
         toolName: toolNames.Magnify,
+        bindings: [{ mouseButton: Enums.MouseBindings.Secondary }],
+      },
+      {
+        toolName: toolNames.StackScroll,
         bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
       },
-      { toolName: toolNames.StackScrollMouseWheel, bindings: [] },
     ],
     passive: [
       { toolName: toolNames.Length },
@@ -217,7 +223,7 @@ function initMPRToolGroup(extensionManager, toolGroupService, commandsManager) {
       { toolName: toolNames.EllipticalROI },
       { toolName: toolNames.CircleROI },
       { toolName: toolNames.RectangleROI },
-      { toolName: toolNames.StackScroll },
+      // { toolName: toolNames.StackScroll },
       { toolName: toolNames.Angle },
       { toolName: toolNames.CobbAngle },
       { toolName: toolNames.PlanarFreehandROI },
@@ -272,6 +278,10 @@ function initVolume3DToolGroup(extensionManager, toolGroupService) {
       },
       {
         toolName: toolNames.Magnify,
+        bindings: [{ mouseButton: Enums.MouseBindings.Secondary }],
+      },
+      {
+        toolName: toolNames.StackScroll,
         bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
       },
       {

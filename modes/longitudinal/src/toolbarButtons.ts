@@ -243,7 +243,7 @@ const toolbarButtons: Button[] = [
       type: 'tool',
       icon: 'tool-stack-scroll',
       label: 'Stack Scroll',
-      commands: _createSetToolActiveCommands('Stack Scroll'),
+      commands: _createSetToolActiveCommands('StackScroll'),
     },
   },
   // ToolbarService._createToolButton(
@@ -310,22 +310,7 @@ const toolbarButtons: Button[] = [
       commands: _createSetToolActiveCommands('Pan'),
     },
   },
-  {
-    id: 'Capture',
-    type: 'ohif.action',
-    props: {
-      icon: 'tool-capture',
-      label: 'Capture',
-      type: 'action',
-      commands: [
-        {
-          commandName: 'showDownloadViewportModal',
-          commandOptions: {},
-          context: 'CORNERSTONE',
-        },
-      ],
-    },
-  },
+  //Layout
   {
     id: 'Layout',
     type: 'ohif.layoutSelector',
