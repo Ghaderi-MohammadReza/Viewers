@@ -30,7 +30,7 @@ const StudyItem = ({
       role="button"
       tabIndex="0"
     >
-      <div className="flex flex-1 flex-col pb-2">
+      <div className="mx-1 flex flex-1 flex-col pb-2">
         <div className="flex flex-row items-center justify-between pt-2 pb-2">
           {/* Make Smaller Than Font Of Date That Display In The Panel */}
           <div className="mr-7 whitespace-nowrap text-sm text-white">{date}</div>
