@@ -26,6 +26,9 @@ const SidePanelWithServices = ({
   const [hasBeenOpened, setHasBeenOpened] = useState(false);
   const [activeTabIndex, setActiveTabIndex] = useState(activeTabIndexProp);
 
+  //Add State For Controling On SetActiveTabIndex & Open/Closing SidePanel By Click On Any Series
+  const [tempTabIndex, setTempTabIndex] = useState<number | null>(null);
+
   useEffect(() => {
     if (panelService) {
       const activatePanelSubscription = panelService.subscribe(
@@ -35,6 +38,8 @@ const SidePanelWithServices = ({
             const tabIndex = tabs.findIndex(tab => tab.id === activatePanelEvent.panelId);
             if (tabIndex !== -1) {
               setActiveTabIndex(tabIndex);
+            } else {
+              setActiveTabIndex(null);
             }
           }
         }
@@ -46,6 +51,14 @@ const SidePanelWithServices = ({
     }
   }, [tabs, hasBeenOpened, panelService]);
 
+  //Add UseEffct For Reset TempTabIndex In Any Time Of Condition That Sets
+  useEffect(() => {
+    if (hasBeenOpened && tempTabIndex !== null) {
+      setActiveTabIndex(tempTabIndex);
+      setTempTabIndex(null); // Reset tempTabIndex
+    }
+  }, [tempTabIndex, hasBeenOpened]);
+
   return (
     <SidePanel
       side={side}
@@ -54,6 +67,7 @@ const SidePanelWithServices = ({
       tabs={tabs}
       onOpen={() => {
         setHasBeenOpened(true);
+        setTempTabIndex(0);
       }}
       expandedWidth={expandedWidth}
     ></SidePanel>
