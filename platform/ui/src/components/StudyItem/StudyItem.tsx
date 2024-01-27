@@ -22,7 +22,7 @@ const StudyItem = ({
   return (
     <div
       className={classnames(
-        isActive ? 'bg-secondary-dark' : 'hover:bg-secondary-main bg-black',
+        isActive ? 'bg-primary-main' : 'hover:bg-secondary-main bg-primary-dark',
         baseClasses
       )}
       onClick={onClick}
@@ -44,8 +44,8 @@ const StudyItem = ({
         </div>
         {/* Make Smaller Than Font Of Date That Display In The Panel */}
         <div className="flex flex-col py-1">
-          <div className="mb-2 pr-5 text-sm text-blue-300">{modalities}</div>
-          <div className="truncate-2-lines break-words text-sm text-blue-300">{description}</div>
+          <div className="mb-2 pr-5 text-sm text-white">{modalities}</div>
+          <div className="truncate-2-lines break-words text-sm text-white">{description}</div>
         </div>
       </div>
       {!!trackedSeries && (
