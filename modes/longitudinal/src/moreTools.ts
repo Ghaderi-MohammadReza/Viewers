@@ -233,21 +233,6 @@ const moreTools = [
         //   'Planar Freehand ROI'
         // ),
         ToolbarService._createToolButton(
-          'Magnify',
-          'tool-magnify',
-          'Magnify',
-          [
-            {
-              commandName: 'setToolActive',
-              commandOptions: {
-                toolName: 'Magnify',
-              },
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Magnify'
-        ),
-        ToolbarService._createToolButton(
           'Rectangle',
           'tool-rectangle',
           'Rectangle',
