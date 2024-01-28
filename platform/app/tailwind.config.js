@@ -40,12 +40,12 @@ module.exports = {
       },
 
       //Bule
-      primary: {
-        light: '#5acce6',
-        main: '#0944b3',
-        dark: '#090c29',
-        active: '#348cfd',
-      },
+      // primary: {
+      //   light: '#5acce6',
+      //   main: '#0944b3',
+      //   dark: '#090c29',
+      //   active: '#348cfd',
+      // },
 
       //Green
       // primary: {
@@ -56,12 +56,12 @@ module.exports = {
       // },
 
       //Nice Blue
-      // primary: {
-      //   light: '#a9d8ed',
-      //   main: '#5d9cec',
-      //   dark: '#355877', // Slightly adjusted from the original dark color
-      //   active: '#81b9e1',
-      // },
+      primary: {
+        light: '#a9d8ed',
+        main: '#5d9cec',
+        dark: '#355877', // Slightly adjusted from the original dark color
+        active: '#81b9e1',
+      },
 
       //Brown
       // primary: {
@@ -87,12 +87,12 @@ module.exports = {
       },
 
       //Blue
-      secondary: {
-        light: '#3a3f99',
-        main: '#2b166b',
-        dark: '#041c4a',
-        active: '#1f1f27',
-      },
+      // secondary: {
+      //   light: '#3a3f99',
+      //   main: '#2b166b',
+      //   dark: '#041c4a',
+      //   active: '#1f1f27',
+      // },
 
       // Green
       // secondary: {
@@ -103,12 +103,12 @@ module.exports = {
       // },
 
       //Nice Blue
-      // secondary: {
-      //   light: '#738dbf',
-      //   main: '#4a6fa5',
-      //   dark: '#2e486e',
-      //   active: '#577eaf',
-      // },
+      secondary: {
+        light: '#738dbf',
+        main: '#4a6fa5',
+        dark: '#2e486e',
+        active: '#577eaf',
+      },
 
       //Brown
       // secondary: {
