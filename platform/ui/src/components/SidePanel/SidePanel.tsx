@@ -1,26 +1,38 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { CSSProperties, useCallback, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 
-type StyleMap = {
-  open: {
-    left: { marginLeft: string };
-    right: { marginRight: string };
-  };
-  closed: {
-    left: { marginLeft: string };
-    right: { marginRight: string };
-  };
-};
 const borderSize = 4;
+const expandedWidth = 160;
 const collapsedWidth = 25;
 const closeIconWidth = 30;
 const gridHorizontalPadding = 10;
 const tabSpacerWidth = 2;
+const gridAvailableWidth = expandedWidth - closeIconWidth - gridHorizontalPadding;
+
+const baseStyle = {
+  maxWidth: `${expandedWidth}px`,
+  width: `${expandedWidth}px`,
+  // To align the top of the side panel with the top of the viewport grid, use position relative and offset the
+  // top by the same top offset as the viewport grid. Also adjust the height so that there is no overflow.
+  position: 'relative',
+  top: '0.2%',
+};
+
+const collapsedHideWidth = expandedWidth - collapsedWidth - borderSize;
+const styleMap = {
+  open: {
+    left: { marginLeft: '0px', height: '99.8%' },
+    right: { marginRight: '0px' },
+  },
+  closed: {
+    left: { marginLeft: `-${collapsedHideWidth}px`, height: '10%' },
+    right: { marginRight: `-${collapsedHideWidth}px` },
+  },
+};
 
 const baseClasses =
   'transition-all duration-300 ease-in-out bg-black border-black justify-start box-content flex flex-col';
@@ -49,7 +61,7 @@ const getTabWidth = (numTabs: number) => {
   }
 };
 
-const getGridWidth = (numTabs: number, gridAvailableWidth: number) => {
+const getGridWidth = (numTabs: number) => {
   const spacersWidth = (numTabs - 1) * tabSpacerWidth;
   const tabsWidth = getTabWidth(numTabs) * numTabs;
 
@@ -60,13 +72,14 @@ const getGridWidth = (numTabs: number, gridAvailableWidth: number) => {
   return gridAvailableWidth;
 };
 
-const getNumGridColumns = (numTabs: number, gridWidth: number) => {
+const getNumGridColumns = (numTabs: number) => {
   if (numTabs === 1) {
     return 1;
   }
 
   // Start by calculating the number of tabs assuming each tab was accompanied by a spacer.
   const tabWidth = getTabWidth(numTabs);
+  const gridWidth = getGridWidth(numTabs);
   const numTabsWithOneSpacerEach = Math.floor(gridWidth / (tabWidth + tabSpacerWidth));
 
   // But there is always one less spacer than tabs, so now check if an extra tab with one less spacer fits.
@@ -80,12 +93,8 @@ const getNumGridColumns = (numTabs: number, gridWidth: number) => {
   return numTabsWithOneSpacerEach;
 };
 
-const getGridStyle = (
-  side: string,
-  numTabs: number = 0,
-  gridWidth: number,
-  expandedWidth: number
-): CSSProperties => {
+const getGridStyle = (side: string, numTabs: number = 0): CSSProperties => {
+  const gridWidth = getGridWidth(numTabs);
   const relativePosition = Math.max(0, Math.floor(expandedWidth - gridWidth) / 2 - closeIconWidth);
   return {
     position: 'relative',
@@ -118,54 +127,13 @@ const getTabIconClassNames = (numTabs: number, isActiveTab: boolean) => {
     rounded: isActiveTab,
   });
 };
-const createStyleMap = (
-  expandedWidth: number,
-  borderSize: number,
-  collapsedWidth: number
-): StyleMap => {
-  const collapsedHideWidth = expandedWidth - collapsedWidth - borderSize;
 
-  return {
-    open: {
-      left: { marginLeft: '0px' },
-      right: { marginRight: '0px' },
-    },
-    closed: {
-      left: { marginLeft: `-${collapsedHideWidth}px` },
-      right: { marginRight: `-${collapsedHideWidth}px` },
-    },
-  };
-};
-
-const createBaseStyle = (expandedWidth: number) => {
-  return {
-    maxWidth: `${expandedWidth}px`,
-    width: `${expandedWidth}px`,
-    // To align the top of the side panel with the top of the viewport grid, use position relative and offset the
-    // top by the same top offset as the viewport grid. Also adjust the height so that there is no overflow.
-    position: 'relative',
-    top: '0.2%',
-    height: '99.8%',
-  };
-};
-const SidePanel = ({
-  side,
-  className,
-  activeTabIndex: activeTabIndexProp,
-  tabs,
-  onOpen,
-  expandedWidth = 248,
-}) => {
-  const { t } = useTranslation('SidePanel');
-
+const SidePanel = ({ side, className, activeTabIndex: activeTabIndexProp, tabs, onOpen }) => {
   const [panelOpen, setPanelOpen] = useState(activeTabIndexProp !== null);
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
-  const styleMap = createStyleMap(expandedWidth, borderSize, collapsedWidth);
-  const baseStyle = createBaseStyle(expandedWidth);
-  const gridAvailableWidth = expandedWidth - closeIconWidth - gridHorizontalPadding;
-  const gridWidth = getGridWidth(tabs.length, gridAvailableWidth);
   const openStatus = panelOpen ? 'open' : 'closed';
+
   const style = Object.assign({}, styleMap[openStatus][side], baseStyle);
 
   const ActiveComponent = tabs[activeTabIndex]?.content;
@@ -200,7 +168,7 @@ const SidePanel = ({
       <>
         <div
           className={classnames(
-            'bg-secondary-dark flex h-[28px] w-full cursor-pointer items-center rounded-md',
+            'bg-secondary-dark flex h-[30px] w-full cursor-pointer items-center rounded-md',
             side === 'left' ? 'justify-end pr-2' : 'justify-start pl-2'
           )}
           onClick={() => {
@@ -252,7 +220,7 @@ const SidePanel = ({
     return (
       <div
         className={classnames(
-          'flex h-[28px] cursor-pointer items-center justify-center',
+          'flex h-[30px] cursor-pointer items-center justify-center',
           side === 'left' ? 'order-last' : 'order-first'
         )}
         style={{ width: `${closeIconWidth}px` }}
@@ -270,13 +238,13 @@ const SidePanel = ({
   };
 
   const getTabGridComponent = () => {
-    const numCols = getNumGridColumns(tabs.length, gridWidth);
+    const numCols = getNumGridColumns(tabs.length);
 
     return (
       <div className={classnames('flex grow ', side === 'right' ? 'justify-start' : 'justify-end')}>
         <div
           className={classnames('bg-primary-dark text-primary-active flex flex-wrap')}
-          style={getGridStyle(side, tabs.length, gridWidth, expandedWidth)}
+          style={getGridStyle(side, tabs.length)}
         >
           {tabs.map((tab, tabIndex) => {
             return (
@@ -330,7 +298,7 @@ const SidePanel = ({
     return (
       <div
         className={classnames(
-          'text-primary-active flex grow cursor-pointer justify-center self-center text-[13px]'
+          'text-primary-active flex grow cursor-pointer justify-center self-center text-[13px] font-bold'
         )}
         style={{
           ...(side === 'left'
@@ -392,7 +360,6 @@ SidePanel.propTypes = {
     ),
   ]),
   onOpen: PropTypes.func,
-  expandedWidth: PropTypes.number,
 };
 
 export default SidePanel;

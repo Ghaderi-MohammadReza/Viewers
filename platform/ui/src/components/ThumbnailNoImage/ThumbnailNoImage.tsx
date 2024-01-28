@@ -32,21 +32,21 @@ const ThumbnailNoImage = ({
 
   return (
     <div
-      className={classnames(
-        'flex flex-1 cursor-pointer select-none flex-row rounded outline-none hover:border-blue-300 focus:border-blue-300',
-        isActive ? 'border-primary-light border-2' : 'border border-transparent'
-      )}
-      style={{
-        padding: isActive ? '11px' : '12px',
-      }}
-      id={`thumbnail-${displaySetInstanceUID}`}
-      onClick={onClick}
-      onDoubleClick={onDoubleClick}
-      role="button"
-      tabIndex="0"
-      data-cy={`study-browser-thumbnail-no-image`}
+    // className={classnames(
+    //   'flex flex-1 cursor-pointer select-none flex-row rounded outline-none hover:border-blue-300 focus:border-blue-300',
+    //   isActive ? 'border-primary-light border-2' : 'border border-transparent'
+    // )}
+    // style={{
+    //   padding: isActive ? '11px' : '12px',
+    // }}
+    // id={`thumbnail-${displaySetInstanceUID}`}
+    // onClick={onClick}
+    // onDoubleClick={onDoubleClick}
+    // role="button"
+    // tabIndex="0"
+    // data-cy={`study-browser-thumbnail-no-image`}
     >
-      <div ref={drag}>
+      {/* <div ref={drag}>
         <div className="flex flex-1 flex-col">
           <div className="mb-2 flex flex-1 flex-row items-center">
             <Icon
@@ -89,7 +89,7 @@ const ThumbnailNoImage = ({
             <div className="ml-4 break-all text-base text-white">{description}</div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -37,7 +37,7 @@ const Thumbnail = ({
     <div
       className={classnames(
         className,
-        'group mx-2 mb-1 flex flex-1 cursor-pointer select-none flex-col outline-none'
+        'group mx-2 mb-1 flex flex-1 cursor-pointer select-none flex-col  outline-none'
       )}
       id={`thumbnail-${displaySetInstanceUID}`}
       data-cy={`study-browser-thumbnail`}
