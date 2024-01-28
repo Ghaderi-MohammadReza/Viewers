@@ -56,20 +56,20 @@ module.exports = {
       // },
 
       //Nice Blue
-      primary: {
-        light: '#a9d8ed',
-        main: '#5d9cec',
-        dark: '#355877', // Slightly adjusted from the original dark color
-        active: '#81b9e1',
-      },
+      // primary: {
+      //   light: '#a9d8ed',
+      //   main: '#5d9cec',
+      //   dark: '#355877', // Slightly adjusted from the original dark color
+      //   active: '#81b9e1',
+      // },
 
       //Brown
-      // primary: {
-      //   light: '#bfa68a',
-      //   main: '#8c5d4a', // Brown main color
-      //   dark: '#5c3a2c',
-      //   active: '#755d4a',
-      // },
+      primary: {
+        light: '#bfa68a',
+        main: '#8c5d4a', // Brown main color
+        dark: '#5c3a2c',
+        active: '#755d4a',
+      },
 
       //Gray
       // primary: {
@@ -103,20 +103,20 @@ module.exports = {
       // },
 
       //Nice Blue
-      secondary: {
-        light: '#738dbf',
-        main: '#4a6fa5',
-        dark: '#2e486e',
-        active: '#577eaf',
-      },
+      // secondary: {
+      //   light: '#738dbf',
+      //   main: '#4a6fa5',
+      //   dark: '#2e486e',
+      //   active: '#577eaf',
+      // },
 
       //Brown
-      // secondary: {
-      //   light: '#a68a6d',
-      //   main: '#7a5945',
-      //   dark: '#4a2c23',
-      //   active: '#5d3a2a',
-      // },
+      secondary: {
+        light: '#a68a6d',
+        main: '#7a5945',
+        dark: '#4a2c23',
+        active: '#5d3a2a',
+      },
 
       //Gray
       // secondary: {
