@@ -64,20 +64,20 @@ module.exports = {
       // },
 
       //Brown
-      primary: {
-        light: '#bfa68a',
-        main: '#8c5d4a', // Brown main color
-        dark: '#5c3a2c',
-        active: '#755d4a',
-      },
+      // primary: {
+      //   light: '#bfa68a',
+      //   main: '#8c5d4a', // Brown main color
+      //   dark: '#5c3a2c',
+      //   active: '#755d4a',
+      // },
 
       //Gray
-      // primary: {
-      //   light: '#cfcfcf',
-      //   main: '#888888', // Gray main color
-      //   dark: '#555555',
-      //   active: '#a0a0a0',
-      // },
+      primary: {
+        light: '#cfcfcf',
+        main: '#888888', // Gray main color
+        dark: '#555555',
+        active: '#a0a0a0',
+      },
 
       inputfield: {
         main: '#3a3f99',
@@ -111,20 +111,20 @@ module.exports = {
       // },
 
       //Brown
-      secondary: {
-        light: '#a68a6d',
-        main: '#7a5945',
-        dark: '#4a2c23',
-        active: '#5d3a2a',
-      },
+      // secondary: {
+      //   light: '#a68a6d',
+      //   main: '#7a5945',
+      //   dark: '#4a2c23',
+      //   active: '#5d3a2a',
+      // },
 
       //Gray
-      // secondary: {
-      //   light: '#999999',
-      //   main: '#666666',
-      //   dark: '#333333',
-      //   active: '#777777',
-      // },
+      secondary: {
+        light: '#999999',
+        main: '#666666',
+        dark: '#333333',
+        active: '#777777',
+      },
 
       common: {
         bright: '#e1e1e1',
