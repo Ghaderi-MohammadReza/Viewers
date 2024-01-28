@@ -40,20 +40,20 @@ module.exports = {
       },
 
       //Bule
-      // primary: {
-      //   light: '#5acce6',
-      //   main: '#0944b3',
-      //   dark: '#090c29',
-      //   active: '#348cfd',
-      // },
+      primary: {
+        light: '#5acce6',
+        main: '#0944b3',
+        dark: '#090c29',
+        active: '#348cfd',
+      },
 
       //Green
-      primary: {
-        light: '#a3d2ca',
-        main: '#3b7a57',
-        dark: '#205d3e',
-        active: '#5cbf9b',
-      },
+      // primary: {
+      //   light: '#a3d2ca',
+      //   main: '#3b7a57',
+      //   dark: '#205d3e',
+      //   active: '#5cbf9b',
+      // },
 
       //Nice Blue
       // primary: {
@@ -87,20 +87,20 @@ module.exports = {
       },
 
       //Blue
-      // secondary: {
-      //   light: '#3a3f99',
-      //   main: '#2b166b',
-      //   dark: '#041c4a',
-      //   active: '#1f1f27',
-      // },
+      secondary: {
+        light: '#3a3f99',
+        main: '#2b166b',
+        dark: '#041c4a',
+        active: '#1f1f27',
+      },
 
       // Green
-      secondary: {
-        light: '#6a8e6d',
-        main: '#405d4a',
-        dark: '#1e3529',
-        active: '#273a31',
-      },
+      // secondary: {
+      //   light: '#6a8e6d',
+      //   main: '#405d4a',
+      //   dark: '#1e3529',
+      //   active: '#273a31',
+      // },
 
       //Nice Blue
       // secondary: {
