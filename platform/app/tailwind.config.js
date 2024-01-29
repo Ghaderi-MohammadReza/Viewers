@@ -48,20 +48,20 @@ module.exports = {
       // },
 
       //Green
-      primary: {
-        light: '#a3d2ca',
-        main: '#3b7a57',
-        dark: '#205d3e',
-        active: '#5cbf9b',
-      },
+      // primary: {
+      //   light: '#a3d2ca',
+      //   main: '#3b7a57',
+      //   dark: '#205d3e',
+      //   active: '#5cbf9b',
+      // },
 
       //Nice Blue
-      // primary: {
-      //   light: '#a9d8ed',
-      //   main: '#5d9cec',
-      //   dark: '#355877', // Slightly adjusted from the original dark color
-      //   active: '#81b9e1',
-      // },
+      primary: {
+        light: '#a9d8ed',
+        main: '#5d9cec',
+        dark: '#355877', // Slightly adjusted from the original dark color
+        active: '#81b9e1',
+      },
 
       //Brown
       // primary: {
@@ -95,20 +95,20 @@ module.exports = {
       // },
 
       // Green
-      secondary: {
-        light: '#6a8e6d',
-        main: '#405d4a',
-        dark: '#1e3529',
-        active: '#273a31',
-      },
+      // secondary: {
+      //   light: '#6a8e6d',
+      //   main: '#405d4a',
+      //   dark: '#1e3529',
+      //   active: '#273a31',
+      // },
 
       //Nice Blue
-      // secondary: {
-      //   light: '#738dbf',
-      //   main: '#4a6fa5',
-      //   dark: '#2e486e',
-      //   active: '#577eaf',
-      // },
+      secondary: {
+        light: '#738dbf',
+        main: '#4a6fa5',
+        dark: '#2e486e',
+        active: '#577eaf',
+      },
 
       //Brown
       // secondary: {

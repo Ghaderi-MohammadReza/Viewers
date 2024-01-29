@@ -20,16 +20,17 @@ const baseStyle = {
   // top by the same top offset as the viewport grid. Also adjust the height so that there is no overflow.
   position: 'relative',
   top: '0.2%',
+  height: '99.8%',
 };
 
 const collapsedHideWidth = expandedWidth - collapsedWidth - borderSize;
 const styleMap = {
   open: {
-    left: { marginLeft: '0px', height: '99.8%' },
+    left: { marginLeft: '0px' },
     right: { marginRight: '0px' },
   },
   closed: {
-    left: { marginLeft: `-${collapsedHideWidth}px`, height: '10%' },
+    left: { marginLeft: `-${collapsedHideWidth}px` },
     right: { marginRight: `-${collapsedHideWidth}px` },
   },
 };

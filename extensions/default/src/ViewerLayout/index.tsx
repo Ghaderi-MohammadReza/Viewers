@@ -17,9 +17,9 @@ function ViewerLayout({
   viewports,
   ViewportGridComp,
   leftPanels = [],
-  rightPanels = [],
+  // rightPanels = [],
   leftPanelDefaultClosed = false,
-  rightPanelDefaultClosed = false,
+  // rightPanelDefaultClosed = false,
 }): React.FunctionComponent {
   const [appConfig] = useAppConfig();
 
@@ -101,7 +101,7 @@ function ViewerLayout({
   };
 
   const leftPanelComponents = leftPanels.map(getPanelData);
-  const rightPanelComponents = rightPanels.map(getPanelData);
+  // const rightPanelComponents = rightPanels.map(getPanelData);
   const viewportComponents = viewports.map(getViewportComponentData);
 
   return (
@@ -165,9 +165,9 @@ ViewerLayout.propTypes = {
   servicesManager: PropTypes.instanceOf(ServicesManager),
   // From modes
   leftPanels: PropTypes.array,
-  rightPanels: PropTypes.array,
+  // rightPanels: PropTypes.array,
   leftPanelDefaultClosed: PropTypes.bool.isRequired,
-  rightPanelDefaultClosed: PropTypes.bool.isRequired,
+  // rightPanelDefaultClosed: PropTypes.bool.isRequired,
   /** Responsible for rendering our grid of viewports; provided by consuming application */
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
   viewports: PropTypes.array,

@@ -56,14 +56,16 @@ const Thumbnail = ({
           )}
         >
           {imageSrc ? (
-            <section>
-              <img
-                src={imageSrc}
-                alt={imageAltText}
-                className="min-h-32 object-none"
-                crossOrigin="anonymous"
-              />
-            </section>
+            <div
+              style={{
+                minHeight: '8rem',
+                background: `url(${imageSrc})`,
+                width: '100%',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
+            ></div>
           ) : (
             <div>{imageAltText}</div>
           )}
@@ -85,7 +87,7 @@ const Thumbnail = ({
             id={`display-set-tooltip-${displaySetInstanceUID}`}
           />
         </div>
-        <div className="break-all text-sm text-white">{description}</div>
+        {/* <div className="break-all text-sm text-white">{description}</div> */}
       </div>
     </div>
   );
