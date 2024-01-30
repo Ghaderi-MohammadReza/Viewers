@@ -156,6 +156,10 @@ module.exports = {
         100: '#262943',
       },
 
+      supplement: {
+        100: '#a9d8ed',
+      },
+
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',

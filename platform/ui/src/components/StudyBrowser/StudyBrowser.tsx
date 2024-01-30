@@ -40,29 +40,36 @@ const StudyBrowser = ({
       ({ studyInstanceUid, date, description, numInstances, modalities, displaySets }) => {
         const isExpanded = expandedStudyInstanceUIDs.includes(studyInstanceUid);
         return (
-          <React.Fragment key={studyInstanceUid}>
-            <StudyItem
-              date={date}
-              description={description}
-              numInstances={numInstances}
-              modalities={modalities}
-              trackedSeries={getTrackedSeries(displaySets)}
-              isActive={isExpanded}
-              onClick={() => {
-                onClickStudy(studyInstanceUid);
-              }}
-              data-cy="thumbnail-list"
-            />
-            {isExpanded && displaySets && (
-              <ThumbnailList
-                thumbnails={displaySets}
-                activeDisplaySetInstanceUIDs={activeDisplaySetInstanceUIDs}
-                onThumbnailClick={onClickThumbnail}
-                onThumbnailDoubleClick={onDoubleClickThumbnail}
-                onClickUntrack={onClickUntrack}
+          <main
+            key={studyInstanceUid}
+            className="flex h-[100%] w-[100%] flex-row"
+          >
+            <section className="h-[100%] sm:w-[25%] md:w-[18%] lg:w-[13%] xl:w-[10%]">
+              <StudyItem
+                date={date}
+                description={description}
+                numInstances={numInstances}
+                modalities={modalities}
+                trackedSeries={getTrackedSeries(displaySets)}
+                isActive={isExpanded}
+                onClick={() => {
+                  onClickStudy(studyInstanceUid);
+                }}
+                data-cy="thumbnail-list"
               />
-            )}
-          </React.Fragment>
+            </section>
+            <section className="h-[100%] sm:w-[75%] md:w-[82%] lg:w-[87%] xl:w-[90%]">
+              {isExpanded && displaySets && (
+                <ThumbnailList
+                  thumbnails={displaySets}
+                  activeDisplaySetInstanceUIDs={activeDisplaySetInstanceUIDs}
+                  onThumbnailClick={onClickThumbnail}
+                  onThumbnailDoubleClick={onDoubleClickThumbnail}
+                  onClickUntrack={onClickUntrack}
+                />
+              )}
+            </section>
+          </main>
         );
       }
     );
@@ -95,9 +102,7 @@ const StudyBrowser = ({
           })}
         </LegacyButtonGroup>
       </div>
-      <div className="ohif-scrollbar invisible-scrollbar flex flex-1 flex-col overflow-auto">
-        {getTabContent()}
-      </div>
+      <div className="flex flex-1 flex-col">{getTabContent()}</div>
     </React.Fragment>
   );
 };

@@ -7,7 +7,7 @@ import Icon from '../Icon';
 
 // const baseClasses =
 //   'first:border-0 border-t border-secondary-light cursor-pointer select-none outline-none';
-const baseClasses = 'first:border-0 border-t border-secondary-light';
+const baseClasses = 'first:border-0 border-t border-secondary-light h-[100%]';
 
 const StudyItem = ({
   date,
@@ -31,22 +31,30 @@ const StudyItem = ({
       tabIndex="0"
     >
       <div className="mx-1 flex flex-1 flex-col pb-2">
-        <div className="flex flex-row items-center justify-between pt-2 pb-2">
+        <div className="flex flex-col pt-2 pb-2">
           {/* Make Smaller Than Font Of Date That Display In The Panel */}
-          <div className="mr-4 flex-grow whitespace-nowrap text-xs text-white">{date}</div>
-          {/* <div className="flex flex-row items-center text-sm text-blue-300">
-            <Icon
-              name="group-layers"
-              className="mx-2 w-4 text-blue-300"
-            />
-            {numInstances}
-          </div> */}
-          <div className="ml-4 flex-grow text-xs text-white">{modalities}</div>
+          <section className="my-2">
+            <div className="ml-2 flex-grow whitespace-nowrap text-[13px] text-white">{date}</div>
+          </section>
+          <section className="my-2">
+            <div className="ml-2 flex flex-row text-[13px] text-white">
+              <Icon
+                name="group-layers"
+                className="mr-2 w-4 text-blue-300"
+              />
+              {numInstances}
+            </div>
+          </section>
+          <section className="my-2">
+            <div className="ml-2 flex-grow text-[13px] text-white">{modalities}</div>
+          </section>
+          <section className="my-2">
+            <div className="truncate-2-lines ml-2 break-words text-[13px] text-white">
+              {description}
+            </div>
+          </section>
         </div>
         {/* Make Smaller Than Font Of Date That Display In The Panel */}
-        <div className="flex flex-col py-1">
-          <div className="truncate-2-lines break-words text-sm text-white">{description}</div>
-        </div>
       </div>
       {!!trackedSeries && (
         <div className="flex-2 flex">

@@ -6,7 +6,9 @@ import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 
 const borderSize = 4;
-const expandedWidth = 160;
+const expandedWidth = 'full';
+const expandedHeight = '20%';
+const collapsedHeight = '5%';
 const collapsedWidth = 25;
 const closeIconWidth = 30;
 const gridHorizontalPadding = 10;
@@ -16,6 +18,8 @@ const gridAvailableWidth = expandedWidth - closeIconWidth - gridHorizontalPaddin
 const baseStyle = {
   maxWidth: `${expandedWidth}px`,
   width: `${expandedWidth}px`,
+  maxHeight: `${expandedHeight}`,
+  height: `${expandedHeight}`,
   // To align the top of the side panel with the top of the viewport grid, use position relative and offset the
   // top by the same top offset as the viewport grid. Also adjust the height so that there is no overflow.
   position: 'relative',
@@ -28,10 +32,14 @@ const styleMap = {
   open: {
     left: { marginLeft: '0px' },
     right: { marginRight: '0px' },
+    bottom: { marginBottom: '0px' },
+    top: { marginTop: '0px' },
   },
   closed: {
     left: { marginLeft: `-${collapsedHideWidth}px` },
     right: { marginRight: `-${collapsedHideWidth}px` },
+    bottom: { marginBottom: `-${collapsedHeight}` },
+    top: { marginTop: `-${collapsedHeight}` },
   },
 };
 
@@ -94,13 +102,21 @@ const getNumGridColumns = (numTabs: number) => {
   return numTabsWithOneSpacerEach;
 };
 
+// const getGridStyle = (side: string, numTabs: number = 0): CSSProperties => {
+//   const gridWidth = getGridWidth(numTabs);
+//   const relativePosition = Math.max(0, Math.floor(expandedWidth - gridWidth) / 2 - closeIconWidth);
+//   return {
+//     position: 'relative',
+//     ...(side === 'left' ? { right: `${relativePosition}px` } : { left: `${relativePosition}px` }),
+//     width: `${gridWidth}px`,
+//   };
+// };
 const getGridStyle = (side: string, numTabs: number = 0): CSSProperties => {
-  const gridWidth = getGridWidth(numTabs);
-  const relativePosition = Math.max(0, Math.floor(expandedWidth - gridWidth) / 2 - closeIconWidth);
+  const gridHeight = expandedHeight; // You may adjust this based on your needs
   return {
     position: 'relative',
-    ...(side === 'left' ? { right: `${relativePosition}px` } : { left: `${relativePosition}px` }),
-    width: `${gridWidth}px`,
+    ...(side === 'top' ? { bottom: '0' } : { top: '0' }), // Adjust the property based on your desired placement
+    height: `${gridHeight}`,
   };
 };
 
@@ -130,7 +146,8 @@ const getTabIconClassNames = (numTabs: number, isActiveTab: boolean) => {
 };
 
 const SidePanel = ({ side, className, activeTabIndex: activeTabIndexProp, tabs, onOpen }) => {
-  const [panelOpen, setPanelOpen] = useState(activeTabIndexProp !== null);
+  const [panelOpen, setPanelOpen] = useState(true);
+
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   const openStatus = panelOpen ? 'open' : 'closed';
@@ -163,14 +180,66 @@ const SidePanel = ({ side, className, activeTabIndex: activeTabIndexProp, tabs, 
     updateActiveTabIndex(activeTabIndexProp);
   }, [activeTabIndexProp, updateActiveTabIndex]);
 
+  // const getCloseStateComponent = () => {
+  //   const _childComponents = Array.isArray(tabs) ? tabs : [tabs];
+  //   return (
+  //     <>
+  //       <div
+  //         className={classnames(
+  //           'bg-secondary-dark flex h-[30px] w-full cursor-pointer items-center rounded-md',
+  //           side === 'left' ? 'justify-end pr-2' : 'justify-start pl-2'
+  //         )}
+  //         onClick={() => {
+  //           updatePanelOpen(prev => !prev);
+  //         }}
+  //         data-cy={`side-panel-header-${side}`}
+  //       >
+  //         <Icon
+  //           name={'navigation-panel-right-reveal'}
+  //           className={classnames('text-primary-active', side === 'left' && 'rotate-180 transform')}
+  //         />
+  //       </div>
+  //       <div className={classnames('mt-3 flex flex-col space-y-3')}>
+  //         {_childComponents.map((childComponent, index) => (
+  //           <Tooltip
+  //             position={side === 'left' ? 'right' : 'left'}
+  //             key={index}
+  //             content={`${childComponent.label}`}
+  //             className={classnames(
+  //               'flex items-center',
+  //               side === 'left' ? 'justify-end ' : 'justify-start '
+  //             )}
+  //           >
+  //             <div
+  //               id={`${childComponent.name}-btn`}
+  //               data-cy={`${childComponent.name}-btn`}
+  //               className="text-primary-active hover:cursor-pointer"
+  //               onClick={() => {
+  //                 updateActiveTabIndex(index);
+  //               }}
+  //             >
+  //               <Icon
+  //                 name={childComponent.iconName}
+  //                 className="text-primary-active"
+  //                 style={{
+  //                   width: '22px',
+  //                   height: '22px',
+  //                 }}
+  //               />
+  //             </div>
+  //           </Tooltip>
+  //         ))}
+  //       </div>
+  //     </>
+  //   );
+  // };
   const getCloseStateComponent = () => {
-    const _childComponents = Array.isArray(tabs) ? tabs : [tabs];
     return (
       <>
         <div
           className={classnames(
             'bg-secondary-dark flex h-[30px] w-full cursor-pointer items-center rounded-md',
-            side === 'left' ? 'justify-end pr-2' : 'justify-start pl-2'
+            side === 'top' ? 'justify-start pt-2' : 'justify-end pr-2'
           )}
           onClick={() => {
             updatePanelOpen(prev => !prev);
@@ -179,40 +248,10 @@ const SidePanel = ({ side, className, activeTabIndex: activeTabIndexProp, tabs, 
         >
           <Icon
             name={'navigation-panel-right-reveal'}
-            className={classnames('text-primary-active', side === 'left' && 'rotate-180 transform')}
+            className={classnames('text-primary-active', side === 'top' && 'rotate-180 transform')}
           />
         </div>
-        <div className={classnames('mt-3 flex flex-col space-y-3')}>
-          {_childComponents.map((childComponent, index) => (
-            <Tooltip
-              position={side === 'left' ? 'right' : 'left'}
-              key={index}
-              content={`${childComponent.label}`}
-              className={classnames(
-                'flex items-center',
-                side === 'left' ? 'justify-end ' : 'justify-start '
-              )}
-            >
-              <div
-                id={`${childComponent.name}-btn`}
-                data-cy={`${childComponent.name}-btn`}
-                className="text-primary-active hover:cursor-pointer"
-                onClick={() => {
-                  updateActiveTabIndex(index);
-                }}
-              >
-                <Icon
-                  name={childComponent.iconName}
-                  className="text-primary-active"
-                  style={{
-                    width: '22px',
-                    height: '22px',
-                  }}
-                />
-              </div>
-            </Tooltip>
-          ))}
-        </div>
+        <div className={classnames('mt-3 flex flex-col space-y-3')}>{/* ... other code */}</div>
       </>
     );
   };
@@ -314,6 +353,14 @@ const SidePanel = ({ side, className, activeTabIndex: activeTabIndexProp, tabs, 
     );
   };
 
+  // const getOpenStateComponent = () => {
+  //   return (
+  //     <div className="bg-primary-dark flex rounded-t pt-1.5 pb-[2px]">
+  //       {getCloseIcon()}
+  //       {tabs.length === 1 ? getOneTabComponent() : getTabGridComponent()}
+  //     </div>
+  //   );
+  // };
   const getOpenStateComponent = () => {
     return (
       <div className="bg-primary-dark flex rounded-t pt-1.5 pb-[2px]">
