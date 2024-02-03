@@ -56,12 +56,12 @@ module.exports = {
       // },
 
       //Nice Blue
-      primary: {
-        light: '#a9d8ed',
-        main: '#5d9cec',
-        dark: '#355877', // Slightly adjusted from the original dark color
-        active: '#81b9e1',
-      },
+      // primary: {
+      //   light: '#a9d8ed',
+      //   main: '#5d9cec',
+      //   dark: '#355877', // Slightly adjusted from the original dark color
+      //   active: '#81b9e1',
+      // },
 
       //Brown
       // primary: {
@@ -72,12 +72,12 @@ module.exports = {
       // },
 
       //Gray
-      // primary: {
-      //   light: '#cfcfcf',
-      //   main: '#888888', // Gray main color
-      //   dark: '#555555',
-      //   active: '#a0a0a0',
-      // },
+      primary: {
+        light: '#cfcfcf',
+        main: '#888888',
+        dark: '#555555',
+        active: '#a0a0a0',
+      },
 
       inputfield: {
         main: '#3a3f99',
@@ -103,12 +103,12 @@ module.exports = {
       // },
 
       //Nice Blue
-      secondary: {
-        light: '#738dbf',
-        main: '#4a6fa5',
-        dark: '#2e486e',
-        active: '#577eaf',
-      },
+      // secondary: {
+      //   light: '#738dbf',
+      //   main: '#4a6fa5',
+      //   dark: '#2e486e',
+      //   active: '#577eaf',
+      // },
 
       //Brown
       // secondary: {
@@ -119,12 +119,12 @@ module.exports = {
       // },
 
       //Gray
-      // secondary: {
-      //   light: '#999999',
-      //   main: '#666666',
-      //   dark: '#333333',
-      //   active: '#777777',
-      // },
+      secondary: {
+        light: '#999999',
+        main: '#666666',
+        dark: '#333333',
+        active: '#777777',
+      },
 
       common: {
         bright: '#e1e1e1',

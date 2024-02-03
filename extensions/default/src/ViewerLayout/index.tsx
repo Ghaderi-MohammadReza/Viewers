@@ -116,7 +116,7 @@ function ViewerLayout({
         style={{ height: 'calc(100vh - 52px' }}
       >
         {showLoadingIndicator && <LoadingIndicatorProgress className="h-full w-full bg-black" />}
-        <div className="h-[70%]">
+        <div className="h-full">
           {/* TOOLBAR + GRID */}
           <div className="flex h-full flex-1 flex-col">
             <div className="relative flex h-full flex-1 items-center justify-center overflow-hidden bg-black">
@@ -130,7 +130,7 @@ function ViewerLayout({
             </div>
           </div>
         </div>
-        <div className="h-[30%]">
+        <div className="mt-1 h-auto">
           {/* LEFT SIDEPANELS */}
           {leftPanelComponents.length ? (
             <ErrorBoundary context="Left Panel">

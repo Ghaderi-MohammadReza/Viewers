@@ -7,8 +7,6 @@ import Tooltip from '../Tooltip';
 
 const borderSize = 4;
 const expandedWidth = 'full';
-const expandedHeight = '20%';
-const collapsedHeight = '5%';
 const collapsedWidth = 25;
 const closeIconWidth = 30;
 const gridHorizontalPadding = 10;
@@ -18,8 +16,6 @@ const gridAvailableWidth = expandedWidth - closeIconWidth - gridHorizontalPaddin
 const baseStyle = {
   maxWidth: `${expandedWidth}px`,
   width: `${expandedWidth}px`,
-  maxHeight: `${expandedHeight}`,
-  height: `${expandedHeight}`,
   // To align the top of the side panel with the top of the viewport grid, use position relative and offset the
   // top by the same top offset as the viewport grid. Also adjust the height so that there is no overflow.
   position: 'relative',
@@ -32,14 +28,10 @@ const styleMap = {
   open: {
     left: { marginLeft: '0px' },
     right: { marginRight: '0px' },
-    bottom: { marginBottom: '0px' },
-    top: { marginTop: '0px' },
   },
   closed: {
     left: { marginLeft: `-${collapsedHideWidth}px` },
     right: { marginRight: `-${collapsedHideWidth}px` },
-    bottom: { marginBottom: `-${collapsedHeight}` },
-    top: { marginTop: `-${collapsedHeight}` },
   },
 };
 
@@ -112,7 +104,7 @@ const getNumGridColumns = (numTabs: number) => {
 //   };
 // };
 const getGridStyle = (side: string, numTabs: number = 0): CSSProperties => {
-  const gridHeight = expandedHeight; // You may adjust this based on your needs
+  // const gridHeight = expandedHeight; // You may adjust this based on your needs
   return {
     position: 'relative',
     ...(side === 'top' ? { bottom: '0' } : { top: '0' }), // Adjust the property based on your desired placement

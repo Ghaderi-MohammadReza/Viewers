@@ -52,7 +52,9 @@ function Header({
               />
             )}
             <div className="ml-4">
-              {WhiteLabeling?.createLogoComponentFn?.(React, props) || <Svg name="logo-ohif" />}
+              {WhiteLabeling?.createLogoComponentFn?.(React, props) || (
+                <div className="text-primary-light">Persian Gulf</div>
+              )}
             </div>
           </div>
         </div>
