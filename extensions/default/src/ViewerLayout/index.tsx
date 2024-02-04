@@ -112,7 +112,7 @@ function ViewerLayout({
         servicesManager={servicesManager}
       />
       <section
-        className="relative flex h-[100%] w-[100%] flex-col flex-nowrap items-stretch overflow-hidden bg-black"
+        className="relative flex h-[100%] w-[100%] flex-col flex-nowrap items-stretch overflow-visible bg-black"
         style={{ height: 'calc(100vh - 52px' }}
       >
         {showLoadingIndicator && <LoadingIndicatorProgress className="h-full w-full bg-black" />}
@@ -130,7 +130,7 @@ function ViewerLayout({
             </div>
           </div>
         </div>
-        <div className="mt-1 h-auto">
+        <div className="sl:mb-[4rem] h-auto md:mb-[0rem]">
           {/* LEFT SIDEPANELS */}
           {leftPanelComponents.length ? (
             <ErrorBoundary context="Left Panel">

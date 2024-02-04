@@ -42,9 +42,9 @@ const StudyBrowser = ({
         return (
           <main
             key={studyInstanceUid}
-            className="flex h-[100%] w-[100%] flex-row"
+            className="flex flex-row"
           >
-            <section className="h-[100%] sm:w-[25%] md:w-[18%] lg:w-[13%] xl:w-[10%]">
+            <section className="sl:w-[20%] h-[100%] sm:w-[20%] md:w-[18%] lg:w-[13%] xl:w-[7%]">
               <StudyItem
                 date={date}
                 description={description}
@@ -58,7 +58,7 @@ const StudyBrowser = ({
                 data-cy="thumbnail-list"
               />
             </section>
-            <section className="h-[100%] sm:w-[75%] md:w-[82%] lg:w-[87%] xl:w-[90%]">
+            <section className="sl:w-[80%] overflow-x-auto sm:w-[80%] md:w-[82%] lg:w-[87%] xl:w-[93%]">
               {isExpanded && displaySets && (
                 <ThumbnailList
                   thumbnails={displaySets}

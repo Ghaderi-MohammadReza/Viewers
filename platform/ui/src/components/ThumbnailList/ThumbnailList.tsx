@@ -16,7 +16,7 @@ const ThumbnailList = ({
   return (
     <div
       id="ohif-thumbnail-list"
-      className="flex flex-row overflow-x-hidden bg-black py-3"
+      className="flex h-full flex-row overflow-x-auto bg-black"
     >
       {thumbnails.map(
         ({

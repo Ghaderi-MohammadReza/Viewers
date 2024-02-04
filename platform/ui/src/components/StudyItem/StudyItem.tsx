@@ -30,26 +30,26 @@ const StudyItem = ({
       role="button"
       tabIndex="0"
     >
-      <div className="mx-1 flex flex-1 flex-col pb-2">
+      <div className="mx-1 flex flex-1 flex-col">
         <div className="flex flex-col pt-2 pb-2">
           {/* Make Smaller Than Font Of Date That Display In The Panel */}
           <section className="my-2">
-            <div className="ml-2 flex-grow whitespace-nowrap text-[13px] text-white">{date}</div>
+            <div className="ml-2 flex-grow whitespace-nowrap text-[10px] text-white">{date}</div>
           </section>
           <section className="my-2">
-            <div className="ml-2 flex flex-row text-[13px] text-white">
+            <div className="ml-2 flex flex-row text-[10px] text-white">
               <Icon
                 name="group-layers"
                 className="mr-2 w-4 text-blue-300"
               />
-              {numInstances}
+              <div className="mt-1">{numInstances}</div>
             </div>
           </section>
           <section className="my-2">
-            <div className="ml-2 flex-grow text-[13px] text-white">{modalities}</div>
+            <div className="ml-2 flex-grow text-[10px] text-white">{modalities}</div>
           </section>
           <section className="my-2">
-            <div className="truncate-2-lines ml-2 break-words text-[13px] text-white">
+            <div className="truncate-2-lines ml-2 break-words text-[10px] text-white">
               {description}
             </div>
           </section>
