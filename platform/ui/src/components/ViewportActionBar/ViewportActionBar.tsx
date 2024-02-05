@@ -12,6 +12,7 @@ import useOnClickOutside from '../../utils/useOnClickOutside';
 
 import PatientInfo from '../PatientInfo';
 import Icon from '../Icon';
+import StudyItem from '../StudyItem';
 
 export type ViewportActionBarProps = {
   studyData: any;
@@ -105,7 +106,9 @@ const ViewportActionBar = ({
   }, [componentRootElem]);
 
   useResizeObserver(componentRootElem, resizeCallback);
-
+  const date = '1';
+  const modalities = 'CT';
+  const description = "gskdfmbv'gl;mn";
   return (
     <div
       ref={componentRootElemRef}
@@ -133,6 +136,7 @@ const ViewportActionBar = ({
           </span>
         </>
       )}
+
       {showArrows && (
         <>
           <Icon
