@@ -30,14 +30,14 @@ const StudyItem = ({
       role="button"
       tabIndex="0"
     >
-      <div className="mx-1 flex h-[9rem] flex-1 flex-col">
-        <div className="absolute bottom-20 flex flex-col pt-2 pb-2">
+      <div className="mx-1 flex h-[9rem] flex-col">
+        <div className="absolute -left-11 mt-12 ml-10 flex -rotate-90 flex-col pt-2 pb-2">
           {/* Make Smaller Than Font Of Date That Display In The Panel */}
-          <section className="absolute -left-6">
-            <div className="-rotate-90 whitespace-nowrap text-[10px] text-white">{date}</div>
+          <section className="">
+            <div className=" mb-3 whitespace-nowrap text-[10px] text-white">{date}</div>
           </section>
-          <section className="absolute -left-2">
-            <div className="-rotate-90 text-[10px] text-white">{modalities}</div>
+          <section className="">
+            <div className=" text-[10px] text-white">{modalities}</div>
           </section>
         </div>
         {/* Make Smaller Than Font Of Date That Display In The Panel */}
