@@ -34,7 +34,7 @@ const StudyItem = ({
         <div className="absolute -left-11 mt-12 ml-10 flex -rotate-90 flex-col pt-2 pb-2">
           {/* Make Smaller Than Font Of Date That Display In The Panel */}
           <section className="">
-            <div className=" mb-3 whitespace-nowrap text-[10px] text-white">{date}</div>
+            <div className=" mb-1 whitespace-nowrap text-[10px] text-white">{date}</div>
           </section>
           <section className="">
             <div className=" text-[10px] text-white">{modalities}</div>

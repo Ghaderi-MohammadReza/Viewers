@@ -44,7 +44,7 @@ const StudyBrowser = ({
             key={studyInstanceUid}
             className="flex flex-row"
           >
-            <section className="sl:w-[20%] bt:w-[15%] wb:w-[12%] h-[100%] sm:w-[8%] md:w-[7%] lg:w-[5%] xl:w-[4%]">
+            <section className="sl:w-[28%] bt:w-[20%] wb:w-[16%] h-[100%] sm:w-[10%] md:w-[8%] lg:w-[6%] xl:w-[5%]">
               <StudyItem
                 date={date}
                 description={description}
