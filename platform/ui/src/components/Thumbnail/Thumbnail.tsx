@@ -37,7 +37,7 @@ const Thumbnail = ({
     <div
       className={classnames(
         className,
-        'mx-2 mb-1 flex h-[7rem] w-[7rem] cursor-pointer select-none flex-col outline-none'
+        'mx-2 mb-1 flex h-[6rem] w-[6rem] cursor-pointer  select-none flex-col outline-none'
       )}
       id={`thumbnail-${displaySetInstanceUID}`}
       data-cy={`study-browser-thumbnail`}
@@ -49,7 +49,7 @@ const Thumbnail = ({
       <div ref={drag}>
         <div
           className={classnames(
-            'flex  items-center justify-center overflow-hidden rounded-md bg-black text-base text-white',
+            'flex  h-[6rem] w-[6rem] items-center justify-center overflow-hidden rounded-md bg-black text-base text-white',
             isActive
               ? 'border-primary-light border-2'
               : 'border-secondary-light border hover:border-blue-300'
