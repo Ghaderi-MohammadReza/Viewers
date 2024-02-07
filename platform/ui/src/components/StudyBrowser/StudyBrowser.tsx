@@ -44,7 +44,7 @@ const StudyBrowser = ({
             key={studyInstanceUid}
             className="flex flex-row"
           >
-            <section className="sl:w-[28%] bt:w-[20%] wb:w-[16%] h-[100%] sm:w-[10%] md:w-[8%] lg:w-[6%] xl:w-[5%]">
+            <section className="sl:w-[14%] bt:w-[12%] wb:w-[8%] ws:w-[5%] el:w-[3%] mw:w-[3%] hw:w-[3%] mw:w-[3%] jw:w-[3%] h-[100%] sm:w-[6%] md:w-[5%] lg:w-[4%] xl:w-[3%]">
               <StudyItem
                 date={date}
                 description={description}
@@ -79,7 +79,7 @@ const StudyBrowser = ({
   return (
     <React.Fragment>
       <div
-        className="w-100 border-secondary-light bg-primary-dark flex flex-row items-center justify-center border-b p-1"
+        className="w-100 border-secondary-light bg-primary-dark hidden flex-row items-center justify-center border-b p-1"
         data-cy={'studyBrowser-panel'}
       >
         {/* TODO Revisit design of LegacyButtonGroup later - for now use LegacyButton for its children.*/}

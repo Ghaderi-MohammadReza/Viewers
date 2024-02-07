@@ -327,7 +327,7 @@ const ViewportDownloadForm = ({
                 sortDirection="none"
                 label={t('File Type')}
                 isSortable={false}
-                onLabelClick={() => {}}
+                onLabelClick={() => { }}
               >
                 <Select
                   className="mt-2 text-white"

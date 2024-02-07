@@ -46,7 +46,10 @@ const Thumbnail = ({
       role="button"
       tabIndex="0"
     >
-      <div ref={drag}>
+      <div
+        ref={drag}
+        className="w-[100%]"
+      >
         <div
           className={classnames(
             'flex  h-[6rem] w-[6rem] items-center justify-center overflow-hidden rounded-md bg-black text-base text-white',
@@ -70,7 +73,7 @@ const Thumbnail = ({
             <div>{imageAltText}</div>
           )}
         </div>
-        <div className="mt-2 flex flex-row justify-between text-base text-blue-300">
+        <div className="m-auto mt-2 flex w-[80%] flex-row justify-between text-base text-blue-300">
           <div>
             <span className="text-primary-main font-bold">{'S: '}</span>
             {seriesNumber}

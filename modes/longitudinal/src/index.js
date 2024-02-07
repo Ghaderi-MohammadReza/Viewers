@@ -125,7 +125,7 @@ function modeFactory({ modeConfiguration }) {
         'MoreTools',
         // 'WindowLevel',
         // 'MeasurementTools',
-        'Pan',
+        'Capture',
         'Zoom',
         'Magnify',
         'StackScroll',

@@ -187,6 +187,7 @@ const toolbarButtons: Button[] = [
           ],
           'Ellipse Tool'
         ),
+
         ToolbarService._createToolButton(
           'CircleROI',
           'tool-circle',
@@ -222,6 +223,32 @@ const toolbarButtons: Button[] = [
       icon: 'tool-zoom',
       label: 'Zoom',
       commands: _createSetToolActiveCommands('Zoom'),
+    },
+  },
+  {
+    id: 'Zoom',
+    type: 'ohif.radioGroup',
+    props: {
+      type: 'tool',
+      icon: 'tool-zoom',
+      label: 'Zoom',
+      commands: _createSetToolActiveCommands('Zoom'),
+    },
+  },
+  {
+    id: 'Capture',
+    type: 'ohif.action',
+    props: {
+      icon: 'tool-capture',
+      label: 'Capture',
+      type: 'action',
+      commands: [
+        {
+          commandName: 'showDownloadViewportModal',
+          commandOptions: {},
+          context: 'CORNERSTONE',
+        },
+      ],
     },
   },
   // Magnify

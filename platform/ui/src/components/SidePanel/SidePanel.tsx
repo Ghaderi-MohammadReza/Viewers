@@ -4,7 +4,6 @@ import React, { CSSProperties, useCallback, useEffect, useState } from 'react';
 
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
-
 const borderSize = 4;
 const expandedWidth = 'full';
 const collapsedWidth = 25;
@@ -230,18 +229,22 @@ const SidePanel = ({ side, className, activeTabIndex: activeTabIndexProp, tabs, 
       <>
         <div
           className={classnames(
-            'bg-secondary-dark flex h-[30px] w-full cursor-pointer items-center rounded-md',
-            side === 'top' ? 'justify-start pt-2' : 'justify-end pr-2'
+            'bg-secondary-dark flex h-[30px] w-full cursor-pointer items-center justify-center rounded-md text-center'
           )}
           onClick={() => {
             updatePanelOpen(prev => !prev);
           }}
           data-cy={`side-panel-header-${side}`}
         >
-          <Icon
-            name={'navigation-panel-right-reveal'}
-            className={classnames('text-primary-active', side === 'top' && 'rotate-180 transform')}
-          />
+          <div>
+            <Icon name={'arrow-up-custom'} />
+          </div>
+          <span className="text-primary-active mx-1 mt-1 text-[13px] font-bold">
+            {tabs[0].label}
+          </span>
+          <div>
+            <Icon name={'arrow-up-custom'} />
+          </div>
         </div>
         <div className={classnames('mt-3 flex flex-col space-y-3')}>{/* ... other code */}</div>
       </>
@@ -340,7 +343,13 @@ const SidePanel = ({ side, className, activeTabIndex: activeTabIndexProp, tabs, 
         data-cy={`${tabs[0].name}-btn`}
         onClick={() => updatePanelOpen(prev => !prev)}
       >
-        <span>{tabs[0].label}</span>
+        <div>
+          <Icon name={'arrow-down-custom'} />
+        </div>
+        <span className="mx-1 mt-1">{tabs[0].label}</span>
+        <div>
+          <Icon name={'arrow-down-custom'} />
+        </div>
       </div>
     );
   };
@@ -355,8 +364,8 @@ const SidePanel = ({ side, className, activeTabIndex: activeTabIndexProp, tabs, 
   // };
   const getOpenStateComponent = () => {
     return (
-      <div className="bg-primary-dark flex rounded-t pt-1.5 pb-[2px]">
-        {getCloseIcon()}
+      <div className="bg-primary-dark flex items-center rounded-t">
+        {/* {getCloseIcon()} */}
         {tabs.length === 1 ? getOneTabComponent() : getTabGridComponent()}
       </div>
     );

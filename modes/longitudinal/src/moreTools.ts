@@ -130,21 +130,6 @@ const moreTools = [
           'Image Overlay',
           { isActive: true }
         ),
-        ToolbarService._createToolButton(
-          'Capture',
-          'tool-capture',
-          'Capture',
-          [
-            {
-              commandName: 'showDownloadViewportModal',
-              commandOptions: {
-                toolName: 'Capture',
-              },
-              context: 'CORNERSTONE',
-            },
-          ],
-          'Capture'
-        ),
         ToolbarService._createActionButton(
           'invert',
           'tool-invert',

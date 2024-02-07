@@ -83,7 +83,8 @@ import notificationsInfo from './../../assets/icons/notifications-info.svg';
 import notificationsWarning from './../../assets/icons/notifications-warning.svg';
 import notificationsError from './../../assets/icons/notifications-error.svg';
 import notificationsSuccess from './../../assets/icons/notifications-success.svg';
-
+import arrowUpCustom from './../../assets/icons/arrow-up-custom.svg';
+import arrowDownCustom from './../../assets/icons/arrow-down-custom.svg';
 /** Tools */
 import toggleDicomOverlay from './../../assets/icons/toggle-dicom-overlay.svg';
 import toolZoom from './../../assets/icons/tool-zoom.svg';
@@ -220,7 +221,8 @@ const ICONS = {
   'notifications-error': notificationsError,
   'notifications-success': notificationsSuccess,
   'notifications-warning': notificationsWarning,
-
+  'arrow-up-custom': arrowUpCustom,
+  'arrow-down-custom': arrowDownCustom,
   /** Tools */
   'toggle-dicom-overlay': toggleDicomOverlay,
   'tool-zoom': toolZoom,
