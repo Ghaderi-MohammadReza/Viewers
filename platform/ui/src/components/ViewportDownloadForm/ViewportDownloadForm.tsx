@@ -343,7 +343,7 @@ const ViewportDownloadForm = ({
                 />
               </InputLabelWrapper>
             </div>
-            <div className="mt-4 ml-2">
+            {/* <div className="mt-4 ml-2">
               <label
                 htmlFor="show-annotations"
                 className="flex items-center"
@@ -358,7 +358,7 @@ const ViewportDownloadForm = ({
                 />
                 <Typography>{t('Show Annotations')}</Typography>
               </label>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
