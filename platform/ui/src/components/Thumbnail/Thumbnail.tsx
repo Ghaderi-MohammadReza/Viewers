@@ -30,7 +30,7 @@ const Thumbnail = ({
   const [collectedProps, drag, dragPreview] = useDrag({
     type: 'displayset',
     item: { ...dragData },
-    canDrag: function (monitor) { },
+    canDrag: function (monitor) {},
   });
 
   return (
@@ -59,22 +59,16 @@ const Thumbnail = ({
           )}
         >
           {imageSrc ? (
-            // <div
-            //   style={{
-            //     minHeight: '8rem',
-            //     background: `url(${imageSrc})`,
-            //     width: '100%',
-            //     backgroundSize: 'cover',
-            //     backgroundPosition: 'center',
-            //     backgroundRepeat: 'no-repeat',
-            //   }}
-            // ></div>
-            <img
-              src={imageSrc}
-              alt={imageAltText}
-              className="min-h-32 object-none"
-              crossOrigin="anonymous"
-            />
+            <div
+              style={{
+                minHeight: '8rem',
+                background: `url(${imageSrc})`,
+                width: '100%',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
+            ></div>
           ) : (
             <div>{imageAltText}</div>
           )}

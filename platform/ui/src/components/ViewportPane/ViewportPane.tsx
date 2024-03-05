@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { useDrop } from 'react-dnd';
-
+import { useRef, useState } from 'react';
+import html2canvas from 'html2canvas';
 // NOTE: If we found a way to make `useDrop` conditional,
 // Or we provided a HOC of this component, we could provide
 // this UI without the DragAndDropContext dependency.
@@ -51,14 +52,9 @@ function ViewportPane({
     drop(element);
     dropElement = element;
   };
-
   return (
     <div
       ref={refHandler}
-      // onInteractionHandler...
-      // https://reactjs.org/docs/events.html#mouse-events
-      // https://stackoverflow.com/questions/8378243/catch-scrolling-event-on-overflowhidden-element
-      onMouseDown={onInteractionHandler}
       onDoubleClick={onDoubleClick}
       onClick={onInteractionHandler}
       onScroll={onInteractionHandler}
@@ -108,7 +104,7 @@ ViewportPane.propTypes = {
   onDoubleClick: PropTypes.func,
 };
 
-const noop = () => { };
+const noop = () => {};
 
 ViewportPane.defaultProps = {
   onInteraction: noop,

@@ -21,7 +21,7 @@ import getSOPInstanceAttributes from '../utils/measurementServiceMappings/utils/
 import CornerstoneServices from '../types/CornerstoneServices';
 import CinePlayer from '../components/CinePlayer';
 import { Types } from '@ohif/core';
-
+import html2canvas from 'html2canvas';
 const STACK = 'stack';
 
 /**
@@ -355,22 +355,57 @@ const OHIFCornerstoneViewport = React.memo(props => {
       unsubscribeFromJumpToMeasurementEvents();
     };
   }, [displaySets, elementRef, viewportId]);
+  const [isTouching, setIsTouching] = useState(false);
+  const touchTimer = useRef(null);
 
+  const onTouchStart = () => {
+    setIsTouching(true);
+    touchTimer.current = setTimeout(startDownload, 500); // Start the timer
+  };
+
+  const onTouchEnd = () => {
+    setIsTouching(false);
+    clearTimeout(touchTimer.current); // Clear the timer
+  };
+
+  const startDownload = async () => {
+    // Use html2canvas to capture the content of the element
+    const element = elementRef.current;
+    const canvas = await html2canvas(element);
+
+    // Convert canvas to data URL
+    const dataUrl = canvas.toDataURL('image/png');
+
+    // Create a hidden link element
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = 'PGMedicalImage.png';
+    a.style.display = 'none';
+
+    // Append the link to the document body
+    document.body.appendChild(a);
+
+    // Simulate click on the link to trigger the download
+    a.click();
+
+    // Remove the link from the document body
+    document.body.removeChild(a);
+  };
   return (
     <React.Fragment>
       <div className="viewport-wrapper">
         <ReactResizeDetector
           refreshMode="debounce"
-          refreshRate={50} // Wait 50 ms after last move to render
+          refreshRate={50}
           onResize={onResize}
           targetRef={elementRef.current}
         />
         <div
           className="cornerstone-viewport-element"
           style={{ height: '100%', width: '100%' }}
-          onContextMenu={e => e.preventDefault()}
-          onMouseDown={e => e.preventDefault()}
           ref={elementRef}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         ></div>
         <CornerstoneOverlays
           viewportId={viewportId}
